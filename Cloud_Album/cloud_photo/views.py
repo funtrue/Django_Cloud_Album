@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from cloud_photo.models import Photo
 
 def home(request):
-    title = '<h1>Hello World</h1>'
-    return HttpResponse(title)
+    photos  = Photo.objects.all()
+    context = {'photos': photos}
+    return render(request, 'cloud_photo/list.html', context)

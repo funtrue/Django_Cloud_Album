@@ -9,3 +9,4 @@ class Photo(models.Model):
     
     class Meta:
         verbose_name = "照片模型"
+        ordering = ('-created_time',)
