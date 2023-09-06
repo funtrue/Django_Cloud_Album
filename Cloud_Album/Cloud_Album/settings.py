@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_ENV = os.getenv("ENV", "NULL")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -26,6 +27,29 @@ SECRET_KEY = 'django-insecure-f0m197-ygfr8lnrzgm0c38)_n5f#evu3f3$2#phjgr@8@@ku34
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+# 如果是测试环境
+if BASE_ENV == "TEST":
+    # 测试环境数据库支持
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'cloud_photo',
+            'USER': 'root',
+            'PASSWORD': 'yanwu12138',
+            'HOST': '127.0.0.1',
+            'PORT': '3306',
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Application definition
@@ -69,18 +93,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Cloud_Album.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
