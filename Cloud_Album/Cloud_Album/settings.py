@@ -134,6 +134,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
+# 新增项。静态文件收集目录
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')
 # 指定媒体文件路径
 MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'

@@ -1,7 +1,16 @@
 asgiref==3.4.1
 Django==3.2.20
+gevent==22.10.2
+greenlet==2.0.2
+gunicorn==21.2.0
+importlib-metadata==4.8.3
 mysqlclient==2.1.1
+packaging==21.3
 Pillow==8.4.0
+pyparsing==3.1.1
 pytz==2023.3
 sqlparse==0.4.4
 typing_extensions==4.1.1
+zipp==3.6.0
+zope.event==4.6
+zope.interface==5.5.2

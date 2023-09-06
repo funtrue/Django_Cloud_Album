@@ -25,7 +25,10 @@ python3 manage.py createsuperuse
 ```
 ### 5. 启动测试服务器：
 ``` shell
-python3 manage.py runserver 0.0.0.0:9000
+python3 manage.py runserver 0.0.0.0:8080
+# 或
+python3 manage.py collectstatic
+gunicorn --worker-class=gevent --timeout 300 Cloud_Album.wsgi:application -b 0.0.0.0:8080 -w 2
 ```
 ## 二. 项目学习地址
 ``` html
