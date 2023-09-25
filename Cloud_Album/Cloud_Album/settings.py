@@ -38,7 +38,7 @@ if BASE_ENV == "TEST":
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'cloud_photo',
             'USER': 'root',
-            'PASSWORD': 'yanwu12138',
+            'PASSWORD': 'z12138',
             'HOST': '127.0.0.1',
             'PORT': '3306',
         }
@@ -55,13 +55,16 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'import_export',
     'cloud_photo',
+    
 ]
 
 MIDDLEWARE = [
@@ -144,3 +147,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# simpleui 优化策略
+SIMPLEUI_HOME_INFO = False 
+SIMPLEUI_ANALYSIS = False
